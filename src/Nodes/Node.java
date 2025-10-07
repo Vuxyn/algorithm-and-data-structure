@@ -1,15 +1,24 @@
 package Nodes;
+import Data.Media;
 
 public abstract class Node {
-    protected Object data;
+    public Media data;
+    public Node nestedNode;
+    public Node next;
+    public Node prev;
 
-    public Node(Object data) {
+    public Node(Media data){
         this.data = data;
+        this.nestedNode = null;
+        this.next = null;
+        this.next = null;
     }
 
-    public Object getData() { return data; }
-    public void setData(Object data) { this.data = data; }
-    
-    @Override
-    public abstract String toString();
+    public Node(Node nestedNode){
+        this.nestedNode = nestedNode;
+        this.next = null;
+        this.next = null;
+    }
+
+
 }

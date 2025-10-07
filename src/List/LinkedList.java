@@ -1,21 +1,23 @@
 package List;
+import Data.*;
+import Nodes.*;
 
 public abstract class LinkedList {
+    public Node head;
+    public Node tail;
     public int size;
-    public LinkedList() { this.size = 0; }
+
+    public LinkedList(){
+        this.head = null;
+        this.tail = null;
+        this.size = 0;
+    }
+
+    public abstract void add(Media media);
+    public abstract boolean delete(String title);
+    public abstract Media search(String title);
+    public abstract void display();
 
     public int getSize() { return size; }
-    public boolean isEmpty() { return size == 0; }
 
-    // Abstract methods that must be implemented
-    public abstract void insertFirst(Object data);
-    public abstract void insertLast(Object data);
-    public abstract void insertAt(int index, Object data);
-    public abstract Object deleteFirst();
-    public abstract Object deleteLast();
-    public abstract Object deleteAt(int index);
-    public abstract Object get(int index);
-    public abstract int search(Object data);
-    public abstract void display();
-    public abstract void clear();
 }

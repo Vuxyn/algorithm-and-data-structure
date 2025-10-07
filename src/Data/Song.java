@@ -1,45 +1,20 @@
 package Data;
 
-public abstract class Song {
-    public String title;
-    public String artist;
+public class Song extends Media{
     public String album;
-    public int duration;
     public String genre;
 
-    public Song(String title, String artist, String album, int duration, String genre) {
-        this.title = title;
-        this.artist = artist;
+    public Song(String title, String artist, int duration, String album, String genre){
+        super(title, artist, duration);
         this.album = album;
-        this.duration = duration;
         this.genre = genre;
     }
 
-    public abstract void play();
-    public abstract void pause();
-    public abstract void stop();
-
-    public String getTitle() { return title; }
-    public String getArtist() { return artist; }
-    public String getAlbum() { return album; }
-    public int getDuration() { return duration; }
-    public String getGenre() { return genre; }
-
-    public void setTitle(String title) { this.title = title; }
-    public void setArtist(String artist) { this.artist = artist; }
-    public void setAlbum(String album) { this.album = album; }
-    public void setDuration(int duration) { this.duration = duration; }
-    public void setGenre(String genre) { this.genre = genre; }
-
-    public String getFormattedDuration() {
-        int minutes = duration / 60;
-        int seconds = duration % 60;
-        return String.format("%d:%02d", minutes, seconds);
-    }
-    
     @Override
-    public String toString() {
-        return String.format("%s - %s | %s | %s | %s", 
-                           title, artist, album, getFormattedDuration(), genre);
-    }
+    public String getType(){ return "Song"; }
+
+    @Override
+    public void display(){ System.out.println("[SONG] " + title + " - " + artist + " | Album: " + album + 
+                         " | Genre: " + genre + " | Duration: " + getFormattedDuration());}
+
 }
