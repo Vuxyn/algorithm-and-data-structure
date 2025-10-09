@@ -10,10 +10,10 @@ public class VideoManager extends LinkedList {
         
         if (head == null) {
             head = tail = newNode;
-            newNode.next = head; // circular
+            newNode.next = head; 
         } else {
             tail.next = newNode;
-            newNode.next = head; // circular
+            newNode.next = head; 
             tail = newNode;
         }
         size++;
@@ -23,22 +23,19 @@ public class VideoManager extends LinkedList {
     public boolean delete(String title) {
         if (head == null) return false;
         
-        // Only one node
         if (head == tail && head.data.title.equalsIgnoreCase(title)) {
             head = tail = null;
             size--;
             return true;
         }
         
-        // Delete head
         if (head.data.title.equalsIgnoreCase(title)) {
             head = head.next;
-            tail.next = head; // maintain circular
+            tail.next = head; 
             size--;
             return true;
         }
         
-        // Delete other nodes
         Node current = head;
         do {
             if (current.next.data.title.equalsIgnoreCase(title)) {

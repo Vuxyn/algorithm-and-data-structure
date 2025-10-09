@@ -24,7 +24,6 @@ public class PodcastManager extends LinkedList {
         Node current = head;
         while (current != null) {
             if (current.data.title.equalsIgnoreCase(title)) {
-                // Delete head
                 if (current == head) {
                     head = head.next;
                     if (head != null) {
@@ -33,12 +32,10 @@ public class PodcastManager extends LinkedList {
                         tail = null;
                     }
                 }
-                // Delete tail
                 else if (current == tail) {
                     tail = tail.prev;
                     tail.next = null;
                 }
-                // Delete middle
                 else {
                     current.prev.next = current.next;
                     current.next.prev = current.prev;
