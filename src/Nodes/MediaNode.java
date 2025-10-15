@@ -6,7 +6,12 @@ public class MediaNode extends Node {
         super(data);
     }
 
-    public MediaNode(Node nestedNode){
-        super(nestedNode);
+    public Media getMedia() {
+        return (Media) getData();
+    }
+    
+    public void displayInfo() {
+        Media media = getMedia();
+        System.out.println("Media: " + media.toString());
     }
 }

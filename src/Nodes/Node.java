@@ -11,14 +11,10 @@ public abstract class Node {
         this.data = data;
         this.nestedNode = null;
         this.next = null;
-        this.next = null;
+        this.prev = null;
     }
 
-    public Node(Node nestedNode){
-        this.nestedNode = nestedNode;
-        this.next = null;
-        this.next = null;
+    public Object getData() {
+        return this.data;
     }
-
-
 }
